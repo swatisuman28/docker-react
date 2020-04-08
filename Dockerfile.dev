@@ -1,0 +1,9 @@
+#use the existing image as a base
+FROM node:8.11.3
+WORKDIR '/app'
+#download and install the dependency
+COPY package.json .
+RUN npm install
+COPY . .
+#tell the image what to do when it starts as a container
+cmd ["npm", "run" ,"start"]
